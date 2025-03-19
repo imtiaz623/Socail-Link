@@ -31,13 +31,14 @@
         }
         .container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             margin-top: 50px;
+            width: 100%;
         }
         .main-buttons {
             display: flex;
             flex-direction: column;
-            margin-bottom: 20px;
+            margin-right: 20px;
         }
         .button {
             background: linear-gradient(145deg, #1e3c72, #2a5298);
@@ -60,8 +61,15 @@
         .dropdown {
             display: none;
             flex-direction: column;
-            margin-top: 10px;
+            margin-left: 20px;
             width: 250px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
         }
         .search-box {
             padding: 10px;
@@ -112,6 +120,7 @@
             dropdownButtons.innerHTML = "";
             searchBox.value = "";
             dropdown.style.display = "flex";
+            dropdown.scrollTop = 0;
             
             for (let i = 1; i <= 30; i++) {
                 let button = document.createElement("button");
