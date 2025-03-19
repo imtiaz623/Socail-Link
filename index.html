@@ -73,31 +73,48 @@
             border-radius: 10px;
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
         }
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
         .search-box {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 10px;
             font-size: 16px;
-            width: 100%;
+            width: 80%;
+        }
+        .back-button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="marquee" id="marquee-text">Aapki website promote hogi</div>
-    <div class="container">
+    <div class="container" id="main-container">
         <div class="main-buttons">
-            <button class="button" onclick="toggleDropdown('facebook')">Facebook</button>
-            <button class="button" onclick="toggleDropdown('youtube')">YouTube</button>
-            <button class="button" onclick="toggleDropdown('tiktok')">TikTok</button>
-            <button class="button" onclick="toggleDropdown('facebook-group')">Facebook Group</button>
-            <button class="button" onclick="toggleDropdown('whatsapp-group')">WhatsApp Group</button>
-            <button class="button" onclick="toggleDropdown('sub4sub')">Sub4Sub</button>
+            <button class="button" onclick="toggleDropdown('Facebook')">Facebook</button>
+            <button class="button" onclick="toggleDropdown('YouTube')">YouTube</button>
+            <button class="button" onclick="toggleDropdown('TikTok')">TikTok</button>
+            <button class="button" onclick="toggleDropdown('Facebook Group')">Facebook Group</button>
+            <button class="button" onclick="toggleDropdown('WhatsApp Group')">WhatsApp Group</button>
+            <button class="button" onclick="toggleDropdown('Sub4Sub')">Sub4Sub</button>
         </div>
-        <div class="dropdown" id="dropdown">
+    </div>
+    <div class="dropdown" id="dropdown">
+        <div class="search-container">
+            <button class="back-button" onclick="goBack()">Back</button>
             <input type="text" class="search-box" id="search-box" onkeyup="filterButtons()" placeholder="Search...">
-            <div id="dropdown-buttons"></div>
         </div>
+        <div id="dropdown-buttons"></div>
     </div>
     <script>
         let marqueeMessages = [
@@ -115,21 +132,27 @@
         setInterval(updateMarquee, 3000);
         
         function toggleDropdown(category) {
+            let mainContainer = document.getElementById("main-container");
             let dropdown = document.getElementById("dropdown");
             let dropdownButtons = document.getElementById("dropdown-buttons");
             let searchBox = document.getElementById("search-box");
             
+            mainContainer.style.display = "none";
+            dropdown.style.display = "flex";
             dropdownButtons.innerHTML = "";
             searchBox.value = "";
-            dropdown.style.display = "flex";
-            dropdown.scrollTop = 0;
             
             for (let i = 1; i <= 30; i++) {
                 let button = document.createElement("button");
                 button.className = "button dropdown-item";
-                button.textContent = category.charAt(0).toUpperCase() + category.slice(1) + " " + i;
+                button.textContent = category + " " + i;
                 dropdownButtons.appendChild(button);
             }
+        }
+        
+        function goBack() {
+            document.getElementById("main-container").style.display = "flex";
+            document.getElementById("dropdown").style.display = "none";
         }
         
         function filterButtons() {
