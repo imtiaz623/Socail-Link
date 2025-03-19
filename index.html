@@ -8,13 +8,13 @@
         body {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
             padding: 20px;
-            overflow: hidden;
+            margin: 0;
         }
         .marquee {
             width: 100%;
@@ -22,7 +22,7 @@
             background: #ff0000;
             color: white;
             padding: 10px 0;
-            position: absolute;
+            position: fixed;
             top: 0;
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -31,29 +31,31 @@
         }
         .container {
             display: flex;
-            flex-direction: row;
-            margin-top: 50px;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
+            margin-top: 60px;
         }
         .main-buttons {
             display: flex;
             flex-direction: column;
-            margin-right: 20px;
+            width: 90%;
+            max-width: 400px;
         }
         .button {
             background: linear-gradient(145deg, #1e3c72, #2a5298);
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 15px;
             margin: 5px 0;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
-            text-align: left;
+            text-align: center;
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
             transition: all 0.2s ease-in-out;
-            width: 250px;
+            width: 100%;
         }
         .button:hover {
             background: linear-gradient(145deg, #2a5298, #1e3c72);
@@ -61,8 +63,8 @@
         .dropdown {
             display: none;
             flex-direction: column;
-            margin-left: 20px;
-            width: 250px;
+            width: 90%;
+            max-width: 400px;
             max-height: 400px;
             overflow-y: auto;
             border: 1px solid #ccc;
