@@ -107,6 +107,9 @@
             <button class="button" onclick="toggleDropdown('Facebook Group')">Facebook Group</button>
             <button class="button" onclick="toggleDropdown('WhatsApp Group')">WhatsApp Group</button>
             <button class="button" onclick="toggleDropdown('Sub4Sub')">Sub4Sub</button>
+            
+            <!-- ✅ Add Your URL Button -->
+            <button class="button" onclick="openGoogleForm()">Add your URL</button>
         </div>
     </div>
     <div class="dropdown" id="dropdown">
@@ -180,6 +183,11 @@
                     button.style.display = "none";
                 }
             });
+        }
+
+        // ✅ Open Google Form
+        function openGoogleForm() {
+            window.open("https://docs.google.com/forms/d/1TVZsLBkyc57SnH1wPJEeCNSwK78c-w9pw47SptBVkk4/edit?usp=forms_home&ths=true", "_blank");
         }
     </script>
 </body>
