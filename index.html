@@ -141,12 +141,26 @@
             dropdown.style.display = "flex";
             dropdownButtons.innerHTML = "";
             searchBox.value = "";
-            
-            for (let i = 1; i <= 30; i++) {
-                let button = document.createElement("button");
-                button.className = "button dropdown-item";
-                button.textContent = category + " " + i;
-                dropdownButtons.appendChild(button);
+
+            if (category === "WhatsApp Group") {
+                let whatsappButtons = [
+                    { name: "Cars in Hyderabad - Online", link: "https://chat.whatsapp.com/HZXBdKnRMq48HXh80vesgw" },
+                    { name: "Hyderabad Update - Online", link: "https://chat.whatsapp.com/FiJu2KPhmSM4qOayvz87sJ" }
+                ];
+                whatsappButtons.forEach(item => {
+                    let button = document.createElement("button");
+                    button.className = "button dropdown-item";
+                    button.textContent = item.name;
+                    button.onclick = () => window.open(item.link, '_blank');
+                    dropdownButtons.appendChild(button);
+                });
+            } else {
+                for (let i = 1; i <= 30; i++) {
+                    let button = document.createElement("button");
+                    button.className = "button dropdown-item";
+                    button.textContent = category + " " + i;
+                    dropdownButtons.appendChild(button);
+                }
             }
         }
         
