@@ -29,6 +29,16 @@
             text-transform: uppercase;
             font-size: 16px;
         }
+        .viewers {
+            font-size: 18px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 10px;
+            background: #f8f8f8;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
         .container {
             display: flex;
             flex-direction: column;
@@ -99,6 +109,10 @@
 </head>
 <body>
     <div class="marquee" id="marquee-text">Aapki website promote hogi</div>
+    
+    <!-- ✅ Viewers Count -->
+    <div class="viewers">👀 Viewers: 2.55K</div>
+    
     <div class="container" id="main-container">
         <div class="main-buttons">
             <button class="button" onclick="toggleDropdown('Facebook')">Facebook</button>
@@ -107,11 +121,12 @@
             <button class="button" onclick="toggleDropdown('Facebook Group')">Facebook Group</button>
             <button class="button" onclick="toggleDropdown('WhatsApp Group')">WhatsApp Group</button>
             <button class="button" onclick="toggleDropdown('Sub4Sub')">Sub4Sub</button>
-            
+
             <!-- ✅ Add Your URL Button -->
             <button class="button" onclick="openGoogleForm()">Add your URL</button>
         </div>
     </div>
+
     <div class="dropdown" id="dropdown">
         <div class="search-container">
             <button class="back-button" onclick="goBack()">Back</button>
@@ -119,6 +134,7 @@
         </div>
         <div id="dropdown-buttons"></div>
     </div>
+
     <script>
         let marqueeMessages = [
             "Aapki website promote hogi",
@@ -133,7 +149,7 @@
             marqueeIndex = (marqueeIndex + 1) % marqueeMessages.length;
         }
         setInterval(updateMarquee, 3000);
-        
+
         function toggleDropdown(category) {
             let mainContainer = document.getElementById("main-container");
             let dropdown = document.getElementById("dropdown");
@@ -166,16 +182,16 @@
                 }
             }
         }
-        
+
         function goBack() {
             document.getElementById("main-container").style.display = "flex";
             document.getElementById("dropdown").style.display = "none";
         }
-        
+
         function filterButtons() {
             let searchInput = document.getElementById("search-box").value.toLowerCase();
             let buttons = document.querySelectorAll(".dropdown-item");
-            
+
             buttons.forEach(button => {
                 if (button.textContent.toLowerCase().includes(searchInput)) {
                     button.style.display = "block";
@@ -185,7 +201,6 @@
             });
         }
 
-        // ✅ Open Google Form
         function openGoogleForm() {
             window.open("https://docs.google.com/forms/d/1TVZsLBkyc57SnH1wPJEeCNSwK78c-w9pw47SptBVkk4/edit?usp=forms_home&ths=true", "_blank");
         }
