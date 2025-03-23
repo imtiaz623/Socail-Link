@@ -105,22 +105,55 @@
             cursor: pointer;
             font-size: 14px;
         }
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .start-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 48%;
+        }
+        .close-button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 48%;
+        }
     </style>
 </head>
 <body>
     <div class="marquee" id="marquee-text">Aapki website promote hogi</div>
     
     <!-- ✅ Viewers Count -->
-    <div class="viewers">👀 Viewers: 2.55K</div>
+    <div class="viewers">👀 Viewers: 10K</div>
     
     <div class="container" id="main-container">
         <div class="main-buttons">
             <button class="button" onclick="toggleDropdown('Facebook')">Facebook</button>
-            <button class="button" onclick="toggleDropdown('YouTube')">YouTube</button>
             <button class="button" onclick="toggleDropdown('TikTok')">TikTok</button>
+            <button class="button" onclick="toggleDropdown('YouTube')">YouTube</button>
             <button class="button" onclick="toggleDropdown('Facebook Group')">Facebook Group</button>
             <button class="button" onclick="toggleDropdown('WhatsApp Group')">WhatsApp Group</button>
             <button class="button" onclick="toggleDropdown('Sub4Sub')">Sub4Sub</button>
+            <!-- ✅ New Button Added -->
+            <button class="button" onclick="toggleDropdown('Online Earning Links')">Online Earning Links</button>
 
             <!-- ✅ Add Your URL Button -->
             <button class="button" onclick="openGoogleForm()">Add your URL</button>
@@ -161,7 +194,270 @@
             dropdownButtons.innerHTML = "";
             searchBox.value = "";
 
-            if (category === "WhatsApp Group") {
+            if (category === "Facebook") {
+                let facebookLinks = [
+                    { 
+                        name: "Facebook Ad Breaks", 
+                        link: "https://www.facebook.com/ads/earn", 
+                        description: "Facebook Ad Breaks کے ذریعے ویڈیوز دکھا کر پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "Facebook Creator Studio", 
+                        link: "https://www.facebook.com/creatorstudio", 
+                        description: "Facebook Creator Studio کے ذریعے اپنے مواد سے پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "Facebook Gaming", 
+                        link: "https://www.facebook.com/gaming", 
+                        description: "Facebook Gaming کے ذریعے گیمز کھیل کر پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "Facebook Marketplace", 
+                        link: "https://www.facebook.com/marketplace", 
+                        description: "Facebook Marketplace پر پراڈکٹس بیچ کر پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "Facebook Stars", 
+                        link: "https://www.facebook.com/stars", 
+                        description: "Facebook Stars کے ذریعے اپنے فالوورز سے سپورٹ حاصل کریں۔"
+                    }
+                ];
+                facebookLinks.forEach(item => {
+                    let container = document.createElement("div");
+                    container.style.marginBottom = "10px";
+
+                    let button = document.createElement("button");
+                    button.className = "button dropdown-item";
+                    button.textContent = item.name;
+                    button.onclick = () => {
+                        container.innerHTML = `
+                            <div class="description">${item.description}</div>
+                            <div class="action-buttons">
+                                <button class="start-button" onclick="window.open('${item.link}', '_blank')">Start</button>
+                                <button class="close-button" onclick="this.parentElement.parentElement.innerHTML = ''">Close</button>
+                            </div>
+                        `;
+                    };
+                    container.appendChild(button);
+                    dropdownButtons.appendChild(container);
+                });
+            } else if (category === "TikTok") {
+                let tiktokLinks = [
+                    { 
+                        name: "TikTok Creator Fund", 
+                        link: "https://www.tiktok.com/creator-fund", 
+                        description: "TikTok Creator Fund کے ذریعے ویڈیوز بنا کر پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "TikTok LIVE Gifts", 
+                        link: "https://www.tiktok.com/live", 
+                        description: "TikTok LIVE پر گفٹس حاصل کر کے پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "TikTok Ads", 
+                        link: "https://www.tiktok.com/business", 
+                        description: "TikTok Ads کے ذریعے اشتہارات چلا کر پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "TikTok Affiliate Program", 
+                        link: "https://www.tiktok.com/affiliate", 
+                        description: "TikTok Affiliate Program کے ذریعے پراڈکٹس بیچ کر کمیشن کمائیں۔"
+                    },
+                    { 
+                        name: "TikTok Challenges", 
+                        link: "https://www.tiktok.com/challenges", 
+                        description: "TikTok Challenges میں حصہ لے کر انعامات جیتیں۔"
+                    }
+                ];
+                tiktokLinks.forEach(item => {
+                    let container = document.createElement("div");
+                    container.style.marginBottom = "10px";
+
+                    let button = document.createElement("button");
+                    button.className = "button dropdown-item";
+                    button.textContent = item.name;
+                    button.onclick = () => {
+                        container.innerHTML = `
+                            <div class="description">${item.description}</div>
+                            <div class="action-buttons">
+                                <button class="start-button" onclick="window.open('${item.link}', '_blank')">Start</button>
+                                <button class="close-button" onclick="this.parentElement.parentElement.innerHTML = ''">Close</button>
+                            </div>
+                        `;
+                    };
+                    container.appendChild(button);
+                    dropdownButtons.appendChild(container);
+                });
+            } else if (category === "YouTube") {
+                let youtubeLinks = [
+                    { 
+                        name: "YouTube AdSense", 
+                        link: "https://www.youtube.com/adsense", 
+                        description: "YouTube AdSense کے ذریعے ویڈیوز پر اشتہارات چلا کر پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "YouTube Premium Revenue", 
+                        link: "https://www.youtube.com/premium", 
+                        description: "YouTube Premium کے ذریعے اپنے ویڈیوز سے پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "YouTube Super Chat", 
+                        link: "https://www.youtube.com/superchat", 
+                        description: "YouTube Super Chat کے ذریعے فالوورز سے سپورٹ حاصل کریں۔"
+                    },
+                    { 
+                        name: "YouTube Channel Memberships", 
+                        link: "https://www.youtube.com/channel-memberships", 
+                        description: "YouTube Channel Memberships کے ذریعے فالوورز سے پیسے کمائیں۔"
+                    },
+                    { 
+                        name: "YouTube Merchandise", 
+                        link: "https://www.youtube.com/merch", 
+                        description: "YouTube Merchandise کے ذریعے پراڈکٹس بیچ کر پیسے کمائیں۔"
+                    }
+                ];
+                youtubeLinks.forEach(item => {
+                    let container = document.createElement("div");
+                    container.style.marginBottom = "10px";
+
+                    let button = document.createElement("button");
+                    button.className = "button dropdown-item";
+                    button.textContent = item.name;
+                    button.onclick = () => {
+                        container.innerHTML = `
+                            <div class="description">${item.description}</div>
+                            <div class="action-buttons">
+                                <button class="start-button" onclick="window.open('${item.link}', '_blank')">Start</button>
+                                <button class="close-button" onclick="this.parentElement.parentElement.innerHTML = ''">Close</button>
+                            </div>
+                        `;
+                    };
+                    container.appendChild(button);
+                    dropdownButtons.appendChild(container);
+                });
+            } else if (category === "Online Earning Links") {
+                let earningLinks = [
+                    { 
+                        name: "Swagbucks", 
+                        link: "https://www.swagbucks.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "InboxDollars", 
+                        link: "https://www.inboxdollars.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "Ysense", 
+                        link: "https://www.ysense.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "PrizeRebel", 
+                        link: "https://www.prizerebel.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "TimeBucks", 
+                        link: "https://www.timebucks.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "GrabPoints", 
+                        link: "https://www.grabpoints.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "EarnHoney", 
+                        link: "https://www.earnhoney.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "RewardXP", 
+                        link: "https://www.rewardxp.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "InstaGC", 
+                        link: "https://www.instagc.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "PrizeRebel", 
+                        link: "https://www.prizerebel.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "Swagbucks", 
+                        link: "https://www.swagbucks.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "InboxDollars", 
+                        link: "https://www.inboxdollars.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "Ysense", 
+                        link: "https://www.ysense.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "PrizeRebel", 
+                        link: "https://www.prizerebel.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "TimeBucks", 
+                        link: "https://www.timebucks.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "GrabPoints", 
+                        link: "https://www.grabpoints.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "EarnHoney", 
+                        link: "https://www.earnhoney.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "RewardXP", 
+                        link: "https://www.rewardxp.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "InstaGC", 
+                        link: "https://www.instagc.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    },
+                    { 
+                        name: "PrizeRebel", 
+                        link: "https://www.prizerebel.com", 
+                        description: "یہ ایپ ads دکھا کر پیسے دیتی ہے۔ یہاں سے ویڈیوز دیکھ کر آپ JazzCash میں پیسے وصول کر سکتے ہیں۔"
+                    }
+                ];
+                earningLinks.forEach(item => {
+                    let container = document.createElement("div");
+                    container.style.marginBottom = "10px";
+
+                    let button = document.createElement("button");
+                    button.className = "button dropdown-item";
+                    button.textContent = item.name;
+                    button.onclick = () => {
+                        container.innerHTML = `
+                            <div class="description">${item.description}</div>
+                            <div class="action-buttons">
+                                <button class="start-button" onclick="window.open('${item.link}', '_blank')">Start</button>
+                                <button class="close-button" onclick="this.parentElement.parentElement.innerHTML = ''">Close</button>
+                            </div>
+                        `;
+                    };
+                    container.appendChild(button);
+                    dropdownButtons.appendChild(container);
+                });
+            } else if (category === "WhatsApp Group") {
                 let whatsappButtons = [
                     { name: "Cars in Hyderabad - Online", link: "https://chat.whatsapp.com/HZXBdKnRMq48HXh80vesgw" },
                     { name: "Hyderabad Update - Online", link: "https://chat.whatsapp.com/FiJu2KPhmSM4qOayvz87sJ" }
