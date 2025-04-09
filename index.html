@@ -1,508 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Watick Video Earn Money</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #111, #222);
-      color: white;
-      margin: 0;
-      padding: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    h1 {
-      color: #0ff;
-      text-shadow: 0 0 5px #0ff;
-      font-size: 1.5rem;
-      margin: 10px 0;
-      text-align: center;
-    }
-    .container {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 500px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    button {
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      background: #00ffff;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      font-size: 1rem;
-      transition: 0.3s ease;
-      margin-bottom: 10px;
-    }
-    button:hover {
-      background: #0ff6;
-    }
-    .hidden {
-      display: none;
-    }
-    .balance-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 15px 0;
-      width: 100%;
-      justify-content: center;
-    }
-    .balance {
-      font-size: 1rem;
-      color: #0f0;
-      font-weight: bold;
-      text-align: center;
-    }
-    .withdraw-btn {
-      background-color: #ff6f61;
-      padding: 6px 12px;
-      border-radius: 10px;
-      color: #000;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 0.8rem;
-      white-space: nowrap;
-      width: auto;
-    }
-    .video-list-container {
-      width: 100%;
-      margin-top: 15px;
-    }
-    .video-list-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      gap: 10px;
-    }
-    .video-list-header .back-button {
-      background-color: #ff6f61;
-      padding: 6px 12px;
-      border-radius: 10px;
-      color: #000;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 0.8rem;
-      white-space: nowrap;
-    }
-    .video-list-header .search-bar {
-      display: flex;
-      align-items: center;
-      flex-grow: 1;
-    }
-    .video-list-header .search-bar input {
-      padding: 8px;
-      border-radius: 10px;
-      border: none;
-      background-color: #333;
-      color: white;
-      width: 100%;
-      font-size: 0.9rem;
-    }
-    .video-list-header .search-bar .search-icon {
-      background-color: #00ffff;
-      padding: 8px;
-      border-radius: 10px;
-      margin-left: 5px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .category-buttons {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 10px;
-    }
-    .profile {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      width: 100%;
-      position: relative;
-    }
-    .profile img {
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-      object-fit: cover;
-    }
-    .profile span {
-      font-size: 1rem;
-      color: #fff;
-    }
-    .add-link-form {
-      width: 100%;
-      margin-top: 15px;
-    }
-    .add-link-form input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      border: none;
-      background-color: #333;
-      color: white;
-      font-size: 0.9rem;
-    }
-    .urdu-message {
-      direction: rtl;
-      text-align: right;
-      padding: 20px;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      margin-top: 20px;
-      border: 1px solid #0ff;
-    }
-    .user-video-container {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-    .delete-btn {
-      background-color: #ff0000;
-      padding: 4px;
-      border-radius: 5px;
-      color: white;
-      font-size: 0.7rem;
-      width: 60px;
-      align-self: center;
-      margin-top: -8px;
-      margin-bottom: 5px;
-    }
-    .bonus-btn {
-      position: absolute;
-      right: 0;
-      background: linear-gradient(145deg, #ffd700, #ff9900);
-      color: #000;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 0.7rem;
-      font-weight: bold;
-      box-shadow: 0 3px 6px rgba(255, 215, 0, 0.4);
-      animation: pulse 2s infinite;
-      border: none;
-      cursor: pointer;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    @media (max-width: 400px) {
-      .container {
-        padding: 15px;
-      }
-      h1 {
-        font-size: 1.3rem;
-      }
-      button, .add-link-form input {
-        padding: 10px;
-      }
-      .profile img {
-        width: 35px;
-        height: 35px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive App Buttons</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin: 0;
+        }
+        .marquee {
+            width: 100%;
+            text-align: center;
+            background: #ff0000;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            font-size: 14px;
+            z-index: 100;
+        }
+        .viewers {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            margin: 50px 0 10px 0;
+            background: #f8f8f8;
+            padding: 8px 12px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 40px;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+        }
+        .app-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 15px;
+            padding: 15px 5px;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            border: none;
+            min-height: 90px;
+        }
+        .app-button.popular {
+            background: linear-gradient(145deg, #ffd700, #ffcc00);
+            animation: pulse 2s infinite;
+        }
+        .app-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+        .app-button:active {
+            transform: translateY(1px);
+        }
+        .app-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
+            object-fit: contain;
+        }
+        .app-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .dropdown {
+            display: none;
+            flex-direction: column;
+            width: 95%;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 200;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        .search-box {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 14px;
+            width: 80%;
+            outline: none;
+        }
+        .back-button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .dropdown-content {
+            width: 100%;
+        }
+        .dropdown-item {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .dropdown-item.popular {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+        }
+        .dropdown-item:hover {
+            background: #eee;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .start-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 48%;
+            font-weight: bold;
+        }
+        .close-button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 48%;
+            font-weight: bold;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 150;
+        }
+        .checker-result {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .checker-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checker-favicon {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+        .checker-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .checker-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status-safe {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status-danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .checker-details {
+            margin-top: 10px;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+        .detail-label {
+            font-weight: bold;
+            width: 120px;
+            color: #555;
+        }
+        .detail-value {
+            flex: 1;
+        }
+        .traffic-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .traffic-level {
+            height: 100%;
+            background: #28a745;
+            border-radius: 5px;
+        }
+        .popular-badge {
+            background: #ffc107;
+            color: #333;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 350px) {
+            .app-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="container">
-    <h1>Watick Video Earn Money</h1>
+    <div class="marquee" id="marquee-text">Aapki website promote hogi</div>
+    <div class="overlay" id="overlay"></div>
     
-    <!-- Profile Section -->
-    <div id="profileSection" class="profile hidden">
-      <img id="profileImage" src="" alt="Profile Image" />
-      <span id="profileName">Welcome back, User!</span>
-      <button id="bonusButton" class="bonus-btn hidden" onclick="showBonusMessage()">Bonus</button>
-    </div>
-
-    <!-- Profile Setup Form -->
-    <div id="profileSetup">
-      <h2>Set up your Profile</h2>
-      <input type="text" id="nameInput" placeholder="Enter your name" />
-      <input type="file" id="profilePicInput" accept="image/*" />
-      <button onclick="saveProfile()">Save Profile</button>
-    </div>
-
-    <!-- Balance Display -->
-    <div class="balance-container">
-      <div id="balanceDisplay" class="balance">
-        Balance: RS0
-      </div>
-      <button class="withdraw-btn" onclick="showWithdrawMessage()">Withdraw</button>
-    </div>
-
-    <!-- Withdraw Message (Hidden by default) -->
-    <div id="withdrawMessage" class="urdu-message hidden">
-      محترم صارف! یہ ایپ تیار ہو رہی ہے اور کچھ دنوں کے اندر آپ کو وٹھڈراؤ سسٹم مل جائے گا۔ وٹھڈراؤ JazzCash، EasyPaisa یا بینک اکاؤنٹ میں ہوگا۔ یہ ایپ بے روزگار بھائی بہنوں کے لیے ڈیزائن ہو رہی ہے۔ بہت جلد یہ ایپ بہت کچھ لے کر آئے گی۔ بس ویڈیو دیکھو، ارننگ کرو، اپنے TikTok ویڈیو کا لنک شامل کرو، اور فالوورز، ویوز، لائکس بڑھاؤ!
-    </div>
-
-    <!-- Bonus Message (Hidden by default) -->
-    <div id="bonusMessage" class="urdu-message hidden">
-      اپنی پروفائل مکمل کریں اور 20 روپے کا بونس حاصل کریں!<br>
-      پروفائل مکمل کرنے کے لیے نام اور تصویر شامل کریں۔
-    </div>
-
-    <!-- Main Category Buttons -->
-    <div id="mainCategoryButtons">
-      <button onclick="openCategory('youtube')">YouTube</button>
-      <button onclick="openCategory('instagram')">Instagram</button>
-    </div>
-
-    <!-- Category Content -->
-    <div id="categoryContent" class="hidden">
-      <div class="video-list-container">
-        <div class="video-list-header">
-          <button class="back-button" onclick="goBackToMain()">⬅ Back</button>
-          <div class="search-bar">
-            <input type="text" id="categorySearchInput" placeholder="Search videos..." oninput="filterCategoryVideos()" />
-            <div class="search-icon">🔍</div>
-          </div>
+    <div class="viewers">👀 Viewers: 10K</div>
+    
+    <div class="container" id="main-container">
+        <div class="app-grid">
+            <!-- Most Popular Options -->
+            <div class="app-button popular" onclick="toggleDropdown('Facebook')">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" class="app-icon" alt="Facebook">
+                <span class="app-name">Facebook <span class="popular-badge">Popular</span></span>
+            </div>
+            <div class="app-button popular" onclick="toggleDropdown('YouTube')">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="app-icon" alt="YouTube">
+                <span class="app-name">YouTube <span class="popular-badge">Popular</span></span>
+            </div>
+            <div class="app-button popular" onclick="toggleDropdown('Online Earning Links')">
+                <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="app-icon" alt="Earning">
+                <span class="app-name">Earn Money <span class="popular-badge">Popular</span></span>
+            </div>
+            
+            <!-- Other Options -->
+            <div class="app-button" onclick="toggleDropdown('TikTok')">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="app-icon" alt="TikTok">
+                <span class="app-name">TikTok</span>
+            </div>
+            <div class="app-button" onclick="toggleDropdown('Facebook Group')">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" class="app-icon" alt="Facebook Group">
+                <span class="app-name">FB Group</span>
+            </div>
+            <div class="app-button" onclick="toggleDropdown('WhatsApp Group')">
+                <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" class="app-icon" alt="WhatsApp">
+                <span class="app-name">WhatsApp</span>
+            </div>
+            <div class="app-button" onclick="toggleDropdown('Sub4Sub')">
+                <img src="https://cdn-icons-png.flaticon.com/512/3128/3128219.png" class="app-icon" alt="Sub4Sub">
+                <span class="app-name">Sub4Sub</span>
+            </div>
+            <div class="app-button" onclick="toggleDropdown('Website Checker')">
+                <img src="https://cdn-icons-png.flaticon.com/512/1570/1570914.png" class="app-icon" alt="Website Check">
+                <span class="app-name">Website Check</span>
+            </div>
+            <div class="app-button" onclick="openGoogleForm()">
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" class="app-icon" alt="Add URL">
+                <span class="app-name">Add URL</span>
+            </div>
         </div>
-
-        <div id="categoryButtons" class="category-buttons"></div>
-      </div>
-
-      <div class="add-link-form">
-        <input type="url" id="categoryLink" placeholder="Add Your Video Link" />
-        <input type="text" id="videoTitle" placeholder="Add Video Title" />
-        <button onclick="addLink()">Add Video</button>
-      </div>
     </div>
-  </div>
 
-  <script>
-    // Load Data
-    const savedName = localStorage.getItem('name');
-    const savedImage = localStorage.getItem('profileImage');
-    let balance = parseInt(localStorage.getItem('balance')) || 0;
-    let currentCategory = "";
-    let videosWatched = JSON.parse(localStorage.getItem('videosWatched')) || {};
-    let userVideos = JSON.parse(localStorage.getItem('userVideos')) || {};
-    let bonusClaimed = localStorage.getItem('bonusClaimed') === 'true';
+    <div class="dropdown" id="dropdown">
+        <div class="search-container">
+            <button class="back-button" onclick="goBack()">Back</button>
+            <input type="text" class="search-box" id="search-box" onkeyup="filterButtons()" placeholder="Search...">
+        </div>
+        <div class="dropdown-content" id="dropdown-buttons"></div>
+    </div>
 
-    // Initialize
-    window.onload = function() {
-      updateProfile();
-      updateBalanceDisplay();
-      
-      if (savedName && savedImage) {
-        document.getElementById('profileSetup').classList.add('hidden');
-        document.getElementById('profileSection').classList.remove('hidden');
-      } else if (!bonusClaimed) {
-        document.getElementById('bonusButton').classList.remove('hidden');
-      }
-    };
-
-    function updateBalanceDisplay() {
-      document.getElementById('balanceDisplay').textContent = `Balance: RS${balance}`;
-      localStorage.setItem('balance', balance);
-    }
-
-    // Profile Functions
-    function updateProfile() {
-      const profileSection = document.getElementById('profileSection');
-      const profileName = document.getElementById('profileName');
-      const profileImage = document.getElementById('profileImage');
-      
-      if (savedName && savedImage) {
-        profileName.textContent = `Welcome back, ${savedName}!`;
-        profileImage.src = savedImage;
-        profileSection.classList.remove('hidden');
-      }
-    }
-
-    function saveProfile() {
-      const name = document.getElementById('nameInput').value.trim();
-      const profilePicInput = document.getElementById('profilePicInput').files[0];
-
-      if (!name || !profilePicInput) {
-        alert("Name aur Profile Picture dono dalo!");
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = function() {
-        localStorage.setItem('name', name);
-        localStorage.setItem('profileImage', reader.result);
-        updateProfile();
-        document.getElementById('profileSetup').classList.add('hidden');
-        alert("Profile save ho gaya! 😊");
+    <script>
+        let marqueeMessages = [
+            "Aapki website promote hogi",
+            "Yahan apni link add karein",
+            "App ko screen pe add karein",
+            "Dosto main share karein"
+        ];
+        let marqueeIndex = 0;
         
-        // Add bonus if not claimed yet
-        if (!bonusClaimed) {
-          balance += 20;
-          updateBalanceDisplay();
-          bonusClaimed = true;
-          localStorage.setItem('bonusClaimed', 'true');
-          document.getElementById('bonusButton').classList.add('hidden');
-          alert("Congratulations! RS20 bonus added to your account");
+        function updateMarquee() {
+            document.getElementById("marquee-text").textContent = marqueeMessages[marqueeIndex];
+            marqueeIndex = (marqueeIndex + 1) % marqueeMessages.length;
         }
-      };
-      reader.readAsDataURL(profilePicInput);
-    }
+        setInterval(updateMarquee, 3000);
 
-    function showBonusMessage() {
-      document.getElementById('bonusMessage').classList.remove('hidden');
-    }
+        function toggleDropdown(category) {
+            let mainContainer = document.getElementById("main-container");
+            let dropdown = document.getElementById("dropdown");
+            let overlay = document.getElementById("overlay");
+            let dropdownButtons = document.getElementById("dropdown-buttons");
+            let searchBox = document.getElementById("search-box");
+            
+            mainContainer.style.display = "none";
+            dropdown.style.display = "flex";
+            overlay.style.display = "block";
+            dropdownButtons.innerHTML = "";
+            searchBox.value = "";
 
-    // Withdraw Message Function
-    function showWithdrawMessage() {
-      const messageDiv = document.getElementById('withdrawMessage');
-      messageDiv.classList.toggle('hidden');
-      document.getElementById('bonusMessage').classList.add('hidden');
-    }
-
-    // Category Functions
-    function openCategory(category) {
-      currentCategory = category;
-      document.getElementById('mainCategoryButtons').classList.add('hidden');
-      document.getElementById('categoryContent').classList.remove('hidden');
-      document.getElementById('withdrawMessage').classList.add('hidden');
-      document.getElementById('bonusMessage').classList.add('hidden');
-      loadCategoryVideos(category);
-    }
-
-    function goBackToMain() {
-      document.getElementById('mainCategoryButtons').classList.remove('hidden');
-      document.getElementById('categoryContent').classList.add('hidden');
-    }
-
-    function loadCategoryVideos(category) {
-      const categoryButtons = document.getElementById('categoryButtons');
-      categoryButtons.innerHTML = "";
-
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        if (key.startsWith(`${category}-`)) {
-          const videoTitle = key.replace(`${category}-`, "");
-          const videoLink = localStorage.getItem(key);
-
-          const videoContainer = document.createElement('div');
-          videoContainer.className = "user-video-container";
-
-          const videoButton = document.createElement('button');
-          videoButton.textContent = videoTitle;
-          videoButton.className = "video-button";
-          
-          // Check if video was already watched
-          if (!videosWatched[key]) {
-            videoButton.onclick = function() {
-              watchVideo(key);
-              window.open(videoLink, '_blank');
-            };
-          } else {
-            videoButton.onclick = function() {
-              window.open(videoLink, '_blank');
-            };
-            videoButton.style.opacity = "0.7";
-          }
-          
-          videoContainer.appendChild(videoButton);
-          
-          // Add delete button if this is user's video
-          if (userVideos[key] && userVideos[key] === savedName) {
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = "Delete";
-            deleteBtn.className = "delete-btn";
-            deleteBtn.onclick = function(e) {
-              e.stopPropagation();
-              deleteVideo(key);
-            };
-            videoContainer.appendChild(deleteBtn);
-          }
-          
-          categoryButtons.appendChild(videoContainer);
+            if (category === "Facebook") {
+                let facebookLinks = [
+                    { 
+                        name: "Facebook Ad Breaks", 
+                        link: "https://www.facebook.com/ads/earn", 
+                        description: "Facebook Ad Breaks ke zariye videos dikha kar paise kamayein",
+                        popular: true
+                    },
+                    { 
+                        name: "Facebook Creator Studio", 
+                        link: "https://www.facebook.com/creatorstudio", 
+                        description: "Facebook Creator Studio ke zariye apne content se paise kamayein",
+                        popular: false
+                    },
+                    { 
+                        name: "Facebook Gaming", 
+                        link: "https://www.facebook.com/gaming", 
+                        description: "Facebook Gaming ke zariye games khel kar paise kamayein",
+                        popular: true
+                    },
+                    { 
+                        name: "Facebook Marketplace", 
+                        link: "https://www.facebook.com/marketplace", 
+                        description: "Facebook Marketplace par products bech kar paise kamayein",
+                        popular: false
+                    },
+                    { 
+                        name: "Facebook Stars", 
+                        link: "https://www.facebook.com/stars", 
+                        description: "Facebook Stars ke zariye apne followers se support hasil karein",
+                        popular: true
+                    }
+                ];
+                facebookLinks.forEach(item => {
+                    let itemDiv = document.createElement("div");
+                    itemDiv.className = item.popular ? "dropdown-item popular" : "dropdown-item";
+                    itemDiv.innerHTML = `
+                        <div><strong>${item.name}${item.popular ? ' <span class="popular-badge">Popular</span>' : ''}</strong></div>
+                        <div class="description" style="font-size:12px;margin-top:5px;">${item.description}</div>
+                        <div class="action-buttons">
+                            <button class="start-button" onclick="window.open('${item.link}', '_blank')">Start</button>
+                            <button class="close-button" onclick="this.parentElement.parentElement.remove()">Close</button>
+                        </div>
+                    `;
+                    dropdownButtons.appendChild(itemDiv);
+                });
+            } else if (category === "YouTube") {
+                let youtubeLinks = [
+                    { 
+                        name: "YouTube AdSense", 
+                        link: "https://www.youtube.com/adsense", 
+                        description: "YouTube AdSense ke zariye videos par ads chala kar paise kamayein",
+                        popular: true
+                    },
+                    { 
+                        name: "YouTube Premium Revenue", 
+                        link: "https://www.youtube.com/premium", 
+                        description: "YouTube Premium ke zariye apne videos se paise kamayein",
+                        popular: false
+                    },
+                    { 
+                        name: "YouTube Super Chat", 
+                        link: "https://www.youtube.com/superchat", 
+                        description: "YouTube Super Chat ke zariye followers se support hasil karein",
+                        popular: true
+                    },
+                    { 
+                        name: "YouTube Channel Memberships", 
+                        link: "https://www.youtube.com/channel-memberships", 
+                        description: "YouTube Channel Memberships ke zariye followers se paise kamayein",
+                        popular: false
+                    },
+                    { 
+                        name: "YouTube Merchandise", 
+                        link: "https://www.youtube.com/merch", 
+                        description: "YouTube Merchandise ke zariye products bech kar paise kamayein",
+                        popular: true
+                    }
+                ];
+                youtubeLinks.forEach(item => {
+                    let itemDiv = document.createElement("div");
+                    itemDiv.className = item.popular ? "dropdown-item popular" : "dropdown-item";
+                    itemDiv.innerHTML = `
+                        <div><strong>${item.name}${item.popular ? ' <span class="popular-badge">Popular</span>' : ''}</strong></div>
+                        <div class="description" style="font-size:12px;margin-top:5px;">${item.description}</div>
+                        <div class="action-buttons">
+                            <button class="start-button" onclick="window.open('${item.link}', '_blank')">Start</button>
+                            <button class="close-button" onclick="this.parentElement.parentElement.remove()">Close</button>
+                        </div>
+                    `;
+                    dropdownButtons.appendChild(itemDiv);
+                });
+            } else if (category === "Online Earning Links") {
+                let earningLinks = [
+                    { 
+                        name: "Swagbucks", 
+                        link: "https://www.swagbucks.com", 
+                        description: "Ye app ads dikha kar paise deti hai. Yahan se videos dekh kar ap JazzCash mein paise wasool kar sakte hain",
+                        popular: true
+                    },
+                    { 
+                        name: "InboxDollars", 
+                        link: "https://www.inboxdollars.com", 
+                        description: "Ye app ads dikha kar paise deti hai. Yahan se videos dekh kar paise kamaen",
+                        popular: true
+                    },
+                    { 
+                        name: "Ysense", 
+                        link: "https://www.ysense.com", 
+                        description: "Ye app ads dikha kar paise deti hai. Surveys complete karein aur paise kamayein",
+                        popular: false
+                    },
+                    { 
+                        name: "PrizeRebel", 
+                        link: "https://www.prizerebel.com", 
+                        description: "Ye app ads dikha kar paise deti hai. Tasks complete karein aur rewards hasil karein",
+                        popular: true
+                    },
+                    { 
+                        name: "TimeBucks", 
+                        link: "https://www.timebucks.com", 
+                        description: "Ye app ads dikha kar paise deti hai. Social media activities se paise kamayein",
+                        popular: false
+                    }
+                ];
+                earningLinks.forEach(item => {
+                    let itemDiv = document.createElement("div");
+                    itemDiv.className = item.popular ? "dropdown-item popular" : "dropdown-item";
+                    itemDiv.innerHTML = `
+                        <div><strong>${item.name}${item.popular ? ' <span class="popular-badge">Popular</span>' : ''}</strong></div>
+                        <div class="description" style="font-size:12px;margin-top:5px;">${item.description}</div>
+                        <div class="action-buttons">
+                            <button class="start-button" onclick="window.open('${item.link}', '_blank')">Start</button>
+                            <button class="close-button" onclick="this.parentElement.parentElement.remove()">Close</button>
+                        </div>
+                    `;
+                    dropdownButtons.appendChild(itemDiv);
+                });
+            } else if (category === "WhatsApp Group") {
+                let whatsappButtons = [
+                    { name: "Cars in Hyderabad - Online", link: "https://chat.whatsapp.com/HZXBdKnRMq48HXh80vesgw" },
+                    { name: "Hyderabad Update - Online", link: "https://chat.whatsapp.com/FiJu2KPhmSM4qOayvz87sJ" }
+                ];
+                whatsappButtons.forEach(item => {
+                    let button = document.createElement("div");
+                    button.className = "dropdown-item";
+                    button.innerHTML = `<strong>${item.name}</strong>`;
+                    button.onclick = () => window.open(item.link, '_blank');
+                    dropdownButtons.appendChild(button);
+                });
+            } else if (category === "Website Checker") {
+                let container = document.createElement("div");
+                container.className = "checker-container";
+                container.innerHTML = `
+                    <h3 style="text-align:center;">Website Authenticity Checker</h3>
+                    <input type="text" id="website-url" class="search-box" placeholder="Website ka URL dalen" style="width:100%;margin:10px 0;">
+                    <button class="button" onclick="checkWebsite()" style="width:100%;">Check Website</button>
+                    <div id="check-result" style="display:none;"></div>
+                `;
+                dropdownButtons.appendChild(container);
+            } else if (category === "Sub4Sub" || category === "Facebook Group") {
+                for (let i = 1; i <= 10; i++) {
+                    let button = document.createElement("div");
+                    button.className = "dropdown-item";
+                    button.textContent = `${category} Group ${i}`;
+                    dropdownButtons.appendChild(button);
+                }
+            }
         }
-      }
-    }
 
-    function watchVideo(videoKey) {
-      if (!videosWatched[videoKey]) {
-        // First time watching this video
-        balance += 3;
-        videosWatched[videoKey] = true;
-        localStorage.setItem('videosWatched', JSON.stringify(videosWatched));
-        updateBalanceDisplay();
-        alert("Video watched! +RS3 added to your balance");
-      }
-    }
+        function goBack() {
+            document.getElementById("main-container").style.display = "flex";
+            document.getElementById("dropdown").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
 
-    function deleteVideo(videoKey) {
-      if (confirm("Kya aap is video ko delete karna chahte hain?")) {
-        localStorage.removeItem(videoKey);
-        delete userVideos[videoKey];
-        localStorage.setItem('userVideos', JSON.stringify(userVideos));
-        loadCategoryVideos(currentCategory);
-        alert("Video delete ho gaya!");
-      }
-    }
+        function filterButtons() {
+            let searchInput = document.getElementById("search-box").value.toLowerCase();
+            let items = document.querySelectorAll(".dropdown-item");
 
-    function filterCategoryVideos() {
-      const searchInput = document.getElementById('categorySearchInput').value.toLowerCase();
-      const videoContainers = document.getElementById('categoryButtons').children;
+            items.forEach(item => {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(searchInput)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
 
-      for (let container of videoContainers) {
-        const button = container.querySelector('button.video-button');
-        const buttonText = button.textContent.toLowerCase();
-        container.style.display = buttonText.includes(searchInput) ? "flex" : "none";
-      }
-    }
+        function openGoogleForm() {
+            window.open("https://docs.google.com/forms/d/1TVZsLBkyc57SnH1wPJEeCNSwK78c-w9pw47SptBVkk4/edit?usp=forms_home&ths=true", "_blank");
+        }
 
-    function addLink() {
-      const link = document.getElementById('categoryLink').value;
-      const title = document.getElementById('videoTitle').value;
+        function checkWebsite() {
+            const url = document.getElementById('website-url').value.trim();
+            const resultDiv = document.getElementById('check-result');
+            const contentDiv = document.getElementById('result-content');
+            
+            if (!url) {
+                resultDiv.innerHTML = '<p style="color:red;">Website ka URL dalen</p>';
+                resultDiv.style.display = 'block';
+                return;
+            }
+            
+            let parsedUrl;
+            try {
+                parsedUrl = new URL(url.startsWith('http') ? url : 'https://' + url);
+            } catch {
+                resultDiv.innerHTML = '<p style="color:red;">Galat URL format</p>';
+                resultDiv.style.display = 'block';
+                return;
+            }
+            
+            resultDiv.innerHTML = `
+                <div style="text-align:center;">
+                    <p>Checking <strong>${parsedUrl.hostname}</strong>...</p>
+                    <div class="loading">🔍 Website scan ho raha hai</div>
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                const report = generateWebsiteReport(parsedUrl);
+                displayWebsiteReport(report, resultDiv);
+            }, 2000);
+        }
 
-      if (!link || !title) {
-        alert("Link aur Title dono dalo!");
-        return;
-      }
+        function generateWebsiteReport(url) {
+            const domain = url.hostname;
+            const isPopular = ['facebook','google','youtube','amazon','twitter','instagram','whatsapp']
+                          .some(site => domain.includes(site));
+            const isSuspicious = ['free','earn','prize','claim','reward','bit.ly','tinyurl','promo']
+                          .some(word => domain.includes(word) || url.pathname.includes(word));
+            
+            // Generate random traffic data for demo
+            const randomTraffic = Math.floor(Math.random() * 100);
+            const dailyUsers = isPopular ? 
+                Math.floor(Math.random() * 1000000) + 500000 : 
+                Math.floor(Math.random() * 100000) + 1000;
+            
+            return {
+                domain: domain,
+                name: getWebsiteName(domain),
+                url: url.href,
+                status: isPopular ? 'safe' : (isSuspicious ? 'danger' : 'warning'),
+                description: getWebsiteDescription(domain),
+                age: isPopular ? "5+ saal purana" : (isSuspicious ? "1 saal se kam purana" : "1-3 saal purana"),
+                ssl: url.protocol === 'https:',
+                owner: isPopular ? "Verified Company" : 
+                      (isSuspicious ? "Hidden Registration" : "Private Registration"),
+                dailyUsers: dailyUsers,
+                trafficLevel: randomTraffic,
+                riskFactors: isSuspicious ? [
+                    "Naya domain registration",
+                    "URL shortener ka istemal",
+                    "Ghair waaqii waday"
+                ] : [],
+                technologies: detectTechnologies(url)
+            };
+        }
 
-      if (balance >= 10) {
-        // Deduct RS10 for adding video
-        balance -= 10;
-        updateBalanceDisplay();
+        function getWebsiteName(domain) {
+            if (domain.includes('facebook')) return "Facebook";
+            if (domain.includes('youtube')) return "YouTube";
+            if (domain.includes('tiktok')) return "TikTok";
+            if (domain.includes('whatsapp')) return "WhatsApp";
+            if (domain.includes('google')) return "Google";
+            return domain.replace('www.', '').split('.')[0].charAt(0).toUpperCase() + 
+                   domain.replace('www.', '').split('.')[0].slice(1);
+        }
 
-        const videoKey = `${currentCategory}-${title}`;
-        // Save to localStorage
-        localStorage.setItem(videoKey, link);
-        
-        // Mark as user's video
-        userVideos[videoKey] = savedName;
-        localStorage.setItem('userVideos', JSON.stringify(userVideos));
-        
-        // Add new button
-        loadCategoryVideos(currentCategory);
-        
-        // Clear inputs
-        document.getElementById('categoryLink').value = "";
-        document.getElementById('videoTitle').value = "";
-        
-        alert("Video add ho gaya! RS10 apke balance se kat gaye.");
-      } else {
-        alert("Sorry! Aapka balance kam hai. Video dekhe aur balance zyada kare. Shukriya!");
-      }
-    }
-  </script>
+        function getWebsiteDescription(domain) {
+            if (domain.includes('facebook')) return "Social media platform";
+            if (domain.includes('youtube')) return "Video sharing platform";
+            if (domain.includes('tiktok')) return "Short video platform";
+            if (domain.includes('whatsapp')) return "Messaging application";
+            if (domain.includes('google')) return "Search engine aur services";
+            return "General website";
+        }
+
+        function detectTechnologies(url) {
+            const commonTech = {
+                "WordPress": url.hostname.includes('blog'),
+                "Shopify": url.hostname.includes('shop'),
+                "React": Math.random() > 0.5,
+                "PHP": Math.random() > 0.3,
+                "jQuery": Math.random() > 0.7
+            };
+            return Object.keys(commonTech).filter(tech => commonTech[tech]);
+        }
+
+        function displayWebsiteReport(report, container) {
+            container.innerHTML = `
+                <div class="checker-result">
+                    <div class="checker-header">
+                        <img src="https://${report.domain}/favicon.ico" class="checker-favicon" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1006/1006771.png'">
+                        <div class="checker-title">${report.name}</div>
+                        <div class="checker-status ${'status-' + report.status}">
+                            ${report.status === 'safe' ? 'ASLI' : 
+                             report.status === 'danger' ? 'NAKLI' : 'MASHKOOK'}
+                        </div>
+                    </div>
+                    
+                    <div class="checker-details">
+                        <div class="detail-row">
+                            <div class="detail-label">Website URL:</div>
+                            <div class="detail-value">${report.url}</div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">Description:</div>
+                            <div class="detail-value">${report.description}</div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">Domain Age:</div>
+                            <div class="detail-value">${report.age}</div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">SSL Secure:</div>
+                            <div class="detail-value">${report.ssl ? '✅ Ha' : '❌ Nahi'}</div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">Rozana Users:</div>
+                            <div class="detail-value">${report.dailyUsers.toLocaleString()}</div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">Traffic Level:</div>
+                            <div class="detail-value">
+                                ${report.trafficLevel}% 
+                                <div class="traffic-bar">
+                                    <div class="traffic-level" style="width:${report.trafficLevel}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">Technologies:</div>
+                            <div class="detail-value">${report.technologies.join(', ') || 'Maloom nahi'}</div>
+                        </div>
+                        
+                        ${report.riskFactors.length ? `
+                        <div class="detail-row">
+                            <div class="detail-label">Risk Factors:</div>
+                            <div class="detail-value">
+                                <ul style="margin:0;padding-left:15px;">
+                                    ${report.riskFactors.map(factor => `<li>${factor}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div style="margin-top:15px; padding:10px; background:#f8f9fa; border-radius:5px;">
+                        <strong>Aakhri Faisla:</strong> 
+                        ${report.status === 'safe' ? 
+                          'Ye website asli aur safe lagti hai.' : 
+                          report.status === 'danger' ?
+                          '⚠️ Khabardar: Ye website nakli ya khatarnak lagti hai.' :
+                          'Is website se ehtiyat bartain kyunke hum sab details verify nahi kar sake.'}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Close dropdown when clicking on overlay
+        document.getElementById('overlay').addEventListener('click', goBack);
+    </script>
 </body>
 </html>
